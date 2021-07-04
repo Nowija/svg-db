@@ -32,6 +32,7 @@ for(var i=0; i<svgDirs.length; i++){
 };
 
 console.log(`Svg folders loaded:\n${svgDirs}`);
+console.log(svgList[1]);
 
 
 // Adding project-folders
