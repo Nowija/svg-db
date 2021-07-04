@@ -9,7 +9,7 @@ const handlebars = require('express-handlebars');
 
 // Svgs
 //####################################
-var svgNames = fs.readdirSync('files/');
+var svgNames = fs.readdirSync('public/');
 var svgList = [];
 
 for(var i=0; i<svgNames.length; i++){
@@ -18,7 +18,7 @@ for(var i=0; i<svgNames.length; i++){
             name: svgNames[i],
             id: svgNames[i].replace('.svg', ''),
             number: i+1,
-            code: fs.readFileSync(`files/${svgNames[i]}`)
+            code: fs.readFileSync(`public/${svgNames[i]}`)
         }
     );
 }
@@ -83,7 +83,7 @@ const colors = [
 
 // Add the "styles" folder
 //####################################
-app.use(express.static('views/styles'));
+app.use(express.static('resources/css'));
 
 
 // Setting up handlebars
