@@ -21,7 +21,7 @@ for(var i=0; i<svgDirs.length; i++){
     );
     var currentSvg = fs.readdirSync(`public/${svgDirs[i]}`);
     for(var n=0; n<currentSvg.length; n++){
-        var currentSvgCode = fs.readFileSync(`public/${svgDirs[i]}/${currentSvg[n]}`)
+        var currentSvgCode = fs.readFileSync(`public/${svgDirs[i]}/${currentSvg[n]}`, 'utf-8');
         svgList[i].svgs.push(
             {
                 name: currentSvg[n],
@@ -34,9 +34,9 @@ for(var i=0; i<svgDirs.length; i++){
 console.log(`Svg folders loaded:\n${svgDirs}`);
 
 
-// Add the "styles" folder
+// Adding project-folders
 //####################################
-app.use(express.static('resources/css'));
+app.use(express.static('resources/'));
 
 
 // Setting up handlebars
@@ -54,18 +54,12 @@ app.engine('hbs', handlebars({
 // Routes
 //####################################
 app.get('/', (req, res) => {
-    res.redirect('/svgs');
+    res.render('svgs');
 });
 
-app.get('/svgs', (req, res) => {
-    res.render('svgs', {
-        svgs: svgList
-    });
-});
-app.get('/colors', (req, res) => {
-    res.render('colors', {
-        colors: colors
-    });
+app.get('/load/svgs', (req, res) => {
+    res.status(200);
+    res.json(svgList);
 });
 
 
