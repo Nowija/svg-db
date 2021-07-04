@@ -1,0 +1,16 @@
+<table>
+    <tr>
+        <th>SVG</th>
+        <th>NR</th>
+        <th>NAME</th>
+        <th>CODE</th>
+    </tr>
+    {{#each svgs}}
+        <tr>
+            <td style="width: 100px">{{{code}}}</td>
+            <td style="width: 100px">{{number}}</td>
+            <td style="width: 300px;" id="{{id}}">{{name}}</td>
+            <td style="padding: 0px 10px;"><input type="text" readonly="true" value="{{code}}"></td>
+        </tr>
+    {{/each}}
+</table>
