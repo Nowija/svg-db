@@ -14,3 +14,9 @@ svg:hover {
     border-radius: 10px;
     cursor: pointer;
 }
+
+.error {
+    background-color: rgb(255, 144, 144);
+    border: 2px solid red;
+    padding: 15px;
+}

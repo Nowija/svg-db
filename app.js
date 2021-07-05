@@ -12,26 +12,30 @@ const handlebars = require('express-handlebars');
 var svgDirs = fs.readdirSync('public/');
 var svgList = [];
 
-for(var i=0; i<svgDirs.length; i++){
-    svgList.push(
-        {
-            directory: svgDirs[i],
-            svgs: []
-        }
-    );
-    var currentSvg = fs.readdirSync(`public/${svgDirs[i]}`);
-    for(var n=0; n<currentSvg.length; n++){
-        var currentSvgCode = fs.readFileSync(`public/${svgDirs[i]}/${currentSvg[n]}`, 'utf-8');
-        svgList[i].svgs.push(
+if(svgDirs.length == 0){
+    console.log('There are no folders and svgs to load!');
+} else {    
+    for(var i=0; i<svgDirs.length; i++){
+        svgList.push(
             {
-                name: currentSvg[n],
-                code: currentSvgCode
+                directory: svgDirs[i],
+                svgs: []
             }
         );
-    }
-};
+        var currentSvg = fs.readdirSync(`public/${svgDirs[i]}`);
+        for(var n=0; n<currentSvg.length; n++){
+            var currentSvgCode = fs.readFileSync(`public/${svgDirs[i]}/${currentSvg[n]}`, 'utf-8');
+            svgList[i].svgs.push(
+                {
+                    name: currentSvg[n],
+                    code: currentSvgCode
+                }
+            );
+        }
+    };
 
-console.log(`Svg folders loaded:\n${svgDirs}`);
+    console.log(`Loaded svg-folders: ${svgDirs}`);
+}
 
 
 // Adding project-folders
