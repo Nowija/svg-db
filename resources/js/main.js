@@ -16,7 +16,7 @@ $.get('http://localhost:3001/load/svgs', function(svgList){
                 ];
                 var color = colors[Math.floor(Math.random()*colors.length)];
                 $("main").append(`
-                    <a style="color:${color};">
+                    <a style="color:${color};" id="${svgList[i].svgs[n].name}">
                         ${svgList[i].svgs[n].code}
                     </a>
                 `);
@@ -49,7 +49,8 @@ function togglePopup(code){
     var svgColor = code.parentElement.style.color;
     $(".svgContainer").append(code.outerHTML).css("color", svgColor);
     // Visar svg:ns namn och kod i popupen
-    $("#svgName").html('svg-placeholdername.svg').css("color", svgColor);
+    var svgName = code.parentElement.id;
+    $("#svgName").html(svgName).css("color", svgColor);
     $("#svgCode").html(code.outerHTML);
 }
 
