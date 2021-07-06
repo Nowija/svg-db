@@ -61,6 +61,18 @@ app.get('/', (req, res) => {
     res.render('svgs');
 });
 
+app.get('/colors', (req, res) => {
+    res.render('colors');
+});
+
+app.get('/links', (req, res) => {
+    res.render('links');
+});
+
+app.get('/git', (req, res) => {
+    res.render('git');
+});
+
 app.get('/load/svgs', (req, res) => {
     res.status(200);
     res.json(svgList);
@@ -70,7 +82,7 @@ app.get('/load/svgs', (req, res) => {
 // Custom 404 page
 //####################################
 app.use(function(req, res) {
-    res.redirect('/');
+    res.render('404');
 });
 
 
