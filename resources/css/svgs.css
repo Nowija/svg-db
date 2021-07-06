@@ -45,12 +45,12 @@ svg:hover {
     transform: translate(-50%, -50%);
 }
 
-.popup > div > .svgContainer > * {
+.popup > div > .svgPlaceholder > * {
     margin: 0px;
     padding: 0px;
 }
 
-.popup > div > .svgContainer > *:hover {
+.popup > div > .svgPlaceholder > *:hover {
     background-color: unset;
     cursor: unset;
 }
