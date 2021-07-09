@@ -1,4 +1,5 @@
 public/*
 !public/.keep
+!public/Examples/
 node_modules
 package-lock.json
