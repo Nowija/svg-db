@@ -96,4 +96,4 @@ app.use(function(req, res) {
 
 // Starting server on port
 //####################################
-app.listen(port, () => console.log(`Server is now listening on port ${port}.`));
+app.listen(port, () => console.log(`Up and running: http://localhost:${port}/`));
