@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head.ejs'); %>
+    <link rel="stylesheet" href="css/svgs.css">
+    <script src="js/svg.js" defer></script>
+</head>
+<body>
+    <%- include('partials/navbar.ejs'); %>
+    <main>
+        <div class="popup">
+            <div>
+                <div>
+                    <div class="svgPlaceholder"></div>
+                    <button onclick="$('.popup').hide();">Close</button>
+                </div>
+                <h2 id="svgName">svg-name-example.svg</h2>
+                <textarea id="svgCode" readonly></textarea>
+            </div>
+        </div>
+        
+        <div class="svgContainer"></div>
+    </main>
+</body>
+</html>

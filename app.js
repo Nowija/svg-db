@@ -4,7 +4,6 @@ const fs = require('fs');
 const express = require('express');
 const app = express();
 const port = 3001;
-const handlebars = require('express-handlebars');
 
 
 // Reading all svg-folders
@@ -46,21 +45,14 @@ if(svgDirs.length == 0){
 }
 
 
+// Setting up ejs
+//####################################
+app.set('view engine', 'ejs');
+
+
 // Adding project-folders
 //####################################
 app.use(express.static('resources/'));
-
-
-// Setting up handlebars
-//####################################
-app.set('view engine', 'hbs');
-
-app.engine('hbs', handlebars({
-    layoutsDir: `${__dirname}/views/layouts`,
-    defaultLayout: 'main',
-    partialsDir: `${__dirname}/views/partials`,
-    extname: 'hbs'
-}));
 
 
 // Routes
@@ -69,31 +61,14 @@ app.get('/', (req, res) => {
     res.render('svgs');
 });
 
-app.get('/colors', (req, res) => {
-    res.render('colors');
-});
-
-app.get('/links', (req, res) => {
-    res.render('links');
-});
-
-app.get('/git', (req, res) => {
-    res.render('git');
-});
 
 app.get('/load/svgs', (req, res) => {
-    res.status(200);
-    res.json(svgList);
-});
-
-
-// Custom 404 page
-//####################################
-app.use(function(req, res) {
-    res.render('404');
+    res.status(200).json(svgList);
 });
 
 
 // Starting server on port
 //####################################
-app.listen(port, () => console.log(`Up and running: http://localhost:${port}/`));
+app.listen(port, () => {
+    console.log(`Up and running on: http://localhost:${port}/`);
+});

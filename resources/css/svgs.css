@@ -10,7 +10,7 @@ svg {
 }
 
 svg:hover {
-    background-color: #C4C4C4;
+    color: rgba(94,160,255,1);
     border-radius: 10px;
     cursor: pointer;
 }
@@ -19,6 +19,9 @@ svg:hover {
     background-color: rgb(255, 144, 144);
     border: 2px solid red;
     padding: 15px;
+    width: 80%;
+    max-width: 600px;
+    margin: auto;
 }
 
 .popup {
@@ -33,11 +36,12 @@ svg:hover {
 
 .popup > div {
     padding: 20px;
-    width: 500px;
+    max-width: 700px;
+    width: 80%;
     background-color: white;
     border-style: solid;
     border-width: 5px;
-    border-image: linear-gradient(90deg, rgba(152,116,245,1) 0%, rgba(94,160,255,1) 50%, rgba(50,200,255,1)) 1;
+    border-color: rgba(94,160,255,1);
     border-radius: 10px;
     position: absolute;
     left: 50%;
@@ -65,7 +69,13 @@ svg:hover {
     margin: 10px 0px;
 }
 
-.popup > div > button {
+.popup > div > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.popup > div > div > button {
     all: unset;
     box-sizing: border-box;
     color: red;
